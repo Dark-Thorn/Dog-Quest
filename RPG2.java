@@ -15,26 +15,81 @@ public class RPG2
     String Cmove3[] = {"bark", "lick", "poison bite", "soothe", "gust", "stealth claw"};
     String Cmove3type[] = {"afraid", "buff", "poison", "heal", "debuff", "cast"};
     int Cmove3Dam[] = {0, 0, 3, 10, 3, 20};
-    //player vars
+    //player vare
+    int pamount = 0;
     int p1 = 0;
     int p1hp = 50;
     String p1statP = "";
     String p1statN = "";
-    int poisontimerP = 0;
-    int bufftimerP = 0;
-    int buffP = 0;
-    int debufftimerP = 0;
-    int debuffP = 0;
+    int poisontimerP1 = 0;
+    int bufftimerP1 = 0;
+    int buffP1 = 0;
+    int debufftimerP1 = 0;
+    int debuffP1 = 0;
+    int p2 = 0;
+    int p2hp = 50;
+    String p2statP = "";
+    String p2statN = "";
+    int poisontimerP2 = 0;
+    int bufftimerP2 = 0;
+    int buffP2 = 0;
+    int debufftimerP2 = 0;
+    int debuffP2 = 0;
+    int p3 = 0;
+    int p3hp = 50;
+    String p3statP = "";
+    String p3statN = "";
+    int poisontimerP3 = 0;
+    int bufftimerP3 = 0;
+    int buffP3 = 0;
+    int debufftimerP3 = 0;
+    int debuffP3 = 0;
+    int p4 = 0;
+    int p4hp = 50;
+    String p4statP = "";
+    String p4statN = "";
+    int poisontimerP4 = 0;
+    int bufftimerP4 = 0;
+    int buffP4 = 0;
+    int debufftimerP4 = 0;
+    int debuffP4 = 0;
     //enemy vars
     int e1 = 0;
     int e1hp = 0;
     String e1statP = "";
     String e1statN = "";
-    int poisontimerE = 0;
-    int bufftimerE = 0;
-    int buffE = 0;
-    int debufftimerE = 0;
-    int debuffE = 0;
+    int poisontimerE1 = 0;
+    int bufftimerE1 = 0;
+    int buffE1 = 0;
+    int debufftimerE1 = 0;
+    int debuffE1 = 0;
+    int e2 = 0;
+    int ehp = 0;
+    String e2statP = "";
+    String e2statN = "";
+    int poisontimerE2 = 0;
+    int bufftimerE2 = 0;
+    int buffE2 = 0;
+    int debufftimerE2 = 0;
+    int debuffE2 = 0;
+    int e3 = 0;
+    int e3hp = 0;
+    String e3statP = "";
+    String e3statN = "";
+    int poisontimerE3 = 0;
+    int bufftimerE3 = 0;
+    int buffE3 = 0;
+    int debufftimerE3 = 0;
+    int debuffE3 = 0;
+    int e4 = 0;
+    int e4hp = 0;
+    String e4statP = "";
+    String e4statN = "";
+    int poisontimerE4 = 0;
+    int bufftimerE4 = 0;
+    int buffE4 = 0;
+    int debufftimerE4 = 0;
+    int debuffE4 = 0;
     //area flags
     int r = 0;
     int g = 0;
@@ -128,6 +183,7 @@ public class RPG2
 
     public void road ()
     {
+	// no atomatic party meber
 	System.out.println ("\tyou arive at long road");
 	int e = (int) (Math.random () * 4);
 	if (e == 1)
@@ -159,7 +215,7 @@ public class RPG2
 	}
 	//boss fight
 	int np = (int) (Math.random () * 2);
-	//new pary meber:
+
 	r++;
 	play = IO.inputChar ("keep going? (y/n)");
     }
@@ -168,6 +224,20 @@ public class RPG2
     public void garbage_dump ()
     {
 	System.out.println ("\tyou arive at garbage dump");
+	if (pamount != 4)
+	{
+	    System.out.println ("a well gromed cat joins you on your quest");
+	    int p = (int) Math.random () * 4;
+	    if (p == 4)
+	    {
+		if (p2 < -1)
+		    p2 = 1;
+		else if (p3 < -1)
+		    p3 = 1;
+		else
+		    p4 = 1;
+	    }
+	}
 	int e = (int) (Math.random () * 4);
 	if (e == 1)
 	{
@@ -337,7 +407,10 @@ public class RPG2
 	{
 	    System.out.println ("the " + e1 + " runs away");
 	    Money += (Math.random () * 10);
-	    poisontimerE = 0;
+	    poisontimerE1 = 0;
+	    poisontimerE2 = 0;
+	    poisontimerE3 = 0;
+	    poisontimerE4 = 0;
 	}
 	else
 	{
@@ -366,13 +439,27 @@ public class RPG2
 	    char select = IO.inputChar ("");
 	    //process my choice
 	    if (select == 'a')
-		processPlayerChoice (Cmove1type [p1], Cmove1Dam [p1]);
-	    else if (select == 'b')
-		processPlayerChoice (Cmove2Type [p1], Cmove2Dam [p1]);
-	    else if (select == 'c')
-		processPlayerChoice (Cmove3type [p1], Cmove3Dam [p1]);
-	    else
-		item ();
+	    {
+		if (pamount > 1)
+		{
+		    if (CmoveT1 [p1] == N)
+		    {
+			System.out.println ("who to you atack?");
+			System.out.println ("a)" + e1 + "b)" + e2 + "c)" + e3 + "d)" + e4);
+			char coyse = IO.inputChar ();
+			if (CmoveT1 [p1] == p)
+			    processPlayerChoice (Cmove1type [p1], Cmove1Dam [p1], coyse);
+		    }
+		}
+
+
+		else if (select == 'b')
+		    processPlayerChoice (Cmove2Type [p1], Cmove2Dam [p1]);
+		else if (select == 'c')
+		    processPlayerChoice (Cmove3type [p1], Cmove3Dam [p1]);
+		else
+		    item ();
+	    }
 	}
     }
 
@@ -418,7 +505,7 @@ public class RPG2
 	if (pickedtype.equals ("damage"))
 	{
 	    System.out.println (e1 + " takes " + pickedDam + " hp.");
-	    e1hp -= pickedDam;
+	    e1hp -= (pickedDam + buffE1 - debuffE1);
 	}
 	else if (pickedtype.equals ("damage") && e1statP.equals ("hide"))
 	    System.out.println ("you are unable to hit " + e1);
@@ -442,25 +529,25 @@ public class RPG2
 	    e1statP = "";
 	if (p1statN == "poison")
 	{
-	    if (poisontimerP < 0)
+	    if (poisontimerP1 < 0)
 	    {
 		p1hp -= 3;
-		poisontimerP--;
+		poisontimerP1--;
 	    }
 	    else
 		p1statN = "";
 	}
 	if (p1statN == "buff")
 	{
-	    if (bufftimerP < 0)
-		bufftimerP--;
+	    if (bufftimerP1 < 0)
+		bufftimerP1--;
 	    else
 		p1statP = "";
 	}
 	if (e1statN == "debuff")
 	{
-	    if (debufftimerE < 0)
-		debufftimerE--;
+	    if (debufftimerE1 < 0)
+		debufftimerE1--;
 	    else
 		e1statN = "";
 	}
@@ -505,7 +592,7 @@ public class RPG2
 	if (pickedtype.equals ("damage"))
 	{
 	    System.out.println (e1 + " takes " + pickedDam + " hp.");
-	    e1hp -= (pickedDam + buffE);
+	    e1hp -= (pickedDam + buffE1 - debuffE1);
 	}
 
 
@@ -529,7 +616,7 @@ public class RPG2
 	    System.out.println ("but " + e1 + " is unable to scare you");
 	else if (pickedtype.equals ("heal"))
 	{
-	    e1hp += (pickedDam + buffE);
+	    e1hp += (pickedDam + buffE1);
 
 	}
 
@@ -540,7 +627,7 @@ public class RPG2
 	    if (c == 1)
 	    {
 		System.out.println ("you are greatly hurt by " + e1 + "'s attack");
-		p1hp -= (pickedDam + buffE);
+		p1hp -= (pickedDam + buffE1);
 	    }
 	    else
 		System.out.println ("but nothing happened");
@@ -553,9 +640,9 @@ public class RPG2
 	{
 	    System.out.println (" hits you and you are poisoned");
 	    p1statN = "poison";
-	    p1hp -= (pickedDam + buffE);
+	    p1hp -= (pickedDam + buffE1- debuffE1);
 
-	    poisontimerE = 3;
+	    poisontimerE1 = 3;
 	}
 
 
@@ -564,16 +651,16 @@ public class RPG2
 	else if (pickedtype.equals ("buff"))
 	{
 	    e1statP = "buff";
-	    bufftimerE = 3;
-	    buffE = 3;
+	    bufftimerE1 = 3;
+	    buffE1 = 3;
 	}
 
 
 	else if (pickedtype.equals ("debuff"))
 	{
 	    p1statN = "debuff";
-	    debufftimerE = 3;
-	    debuffE = 3;
+	    debufftimerE1 = 3;
+	    debuffE1 = 3;
 	}
 
 
@@ -581,10 +668,10 @@ public class RPG2
 	    p1statP = "";
 	if (e1statN == "poison")
 	{
-	    if (poisontimerE < 0)
+	    if (poisontimerE1 < 0)
 	    {
 		e1hp -= 3;
-		poisontimerE--;
+		poisontimerE1--;
 	    }
 	    else
 		e1statN = "";
@@ -593,8 +680,8 @@ public class RPG2
 
 	if (e1statN == "buff")
 	{
-	    if (bufftimerE < 0)
-		bufftimerE--;
+	    if (bufftimerE1 < 0)
+		bufftimerE1--;
 	    else
 		e1statP = "";
 	}
@@ -602,8 +689,8 @@ public class RPG2
 
 	if (e1statN == "debuff")
 	{
-	    if (debufftimerE < 0)
-		debufftimerE--;
+	    if (debufftimerE1 < 0)
+		debufftimerE1--;
 	    else
 		e1statN = "";
 	}
