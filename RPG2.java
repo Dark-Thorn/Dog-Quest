@@ -420,6 +420,7 @@ public class RPG2
 	    System.out.println ("enemy " + e1 + "'s HP equal to " + e1hp);
 	    System.out.println ();
 	    playerChoice ();
+	   if (p
 	    EnemyChoice ();
 	}
 	//who won
@@ -440,7 +441,7 @@ public class RPG2
     }
 
 
-    public void playerChoice ()
+    public void playerChoice1 ()
     {
 	System.out.println ("it is your tern");
 	//afraid
@@ -467,498 +468,670 @@ public class RPG2
 			System.out.println ("who to you atack?");
 			System.out.println ("a)" + e1 + "b)" + e2 + "c)" + e3 + "d)" + e4);
 			char target = IO.inputChar ();
+			if (target == 'a')
+			    System.out.println ("you " + Cmove1 [p1] + " enemy " + Cname [e1]);
+			else if (target == 'b')
+			    System.out.println ("you " + Cmove1 [p1] + " enemy " + Cname [e2]);
+			else if (target == 'c')
+			    System.out.println ("you " + Cmove1 [p1] + " enemy " + Cname [e3]);
+			else
+			    System.out.println ("you " + Cmove1 [p1] + " enemy " + Cname [e4]);
 		    }
 		    else if (CmoveT1 [p1] == p)
 		    {
 			System.out.println ("who to you help?");
 			System.out.println ("a) you b)" + p2 + "c)" + p3 + "d)" + p4);
 			char target = IO.inputChar ();
+			if (target == 'a')
+			    System.out.println ("you " + Cmove1 [p1] + Cname [p1]);
+			else if (target == 'b')
+			    System.out.println ("you " + Cmove1 [p1] + Cname [p2]);
+			else if (target == 'c')
+			    System.out.println ("you " + Cmove1 [p1] + Cname [p3]);
+			else
+			    System.out.println ("you " + Cmove1 [p1] + Cname [p4]);
 		    }
+		    else
+			target = 'a';
+		}
+		else
+		{
+		    target = 'a';
 		}
 		processPlayerChoice (Cmove1type [p1], Cmove1Dam [p1], target);
 	    }
+
+	    else if (select == 'b')
+	    {
+		if (pamount > 1)
+		{
+		    if (CmoveT2 [p1] == N)
+		    {
+			System.out.println ("who to you atack?");
+			System.out.println ("a)" + e1 + "b)" + e2 + "c)" + e3 + "d)" + e4);
+			char target = IO.inputChar ();
+			if (target == 'a')
+			    System.out.println ("you " + Cmove2 [p1] + " enemy " + Cname [e1]);
+			else if (target == 'b')
+			    System.out.println ("you " + Cmove2 [p1] + " enemy " + Cname [e2]);
+			else if (target == 'c')
+			    System.out.println ("you " + Cmove2 [p1] + " enemy " + Cname [e3]);
+			else
+			    System.out.println ("you " + Cmove2 [p1] + " enemy " + Cname [e4]);
+		    }
+		    else if (CmoveT2 [p1] == p)
+		    {
+			System.out.println ("who to you help?");
+			System.out.println ("a) you b)" + p2 + "c)" + p3 + "d)" + p4);
+			char target = IO.inputChar ();
+			if (target == 'a')
+			    System.out.println ("you " + Cmove2 [p1] + Cname [p1]);
+			else if (target == 'b')
+			    System.out.println ("you " + Cmove2 [p1] + Cname [p2]);
+			else if (target == 'c')
+			    System.out.println ("you " + Cmove2 [p1] + Cname [p3]);
+			else
+			    System.out.println ("you " + Cmove2 [p1] + Cname [p4]);
+		    }
+		    else
+			target = 'a';
+		}
+		else
+		{
+		    target = 'a';
+		}
+	    }
+	    processPlayerChoice (Cmove2Type [p1], Cmove2Dam [p1], target);
 	}
-	else if (select == 'b')
+
+
+	else if (select == 'c')
 	{
 	    if (pamount > 1)
 	    {
-		if (CmoveT2 [p1] == N)
+		if (CmoveT3 [p1] == N)
 		{
 		    System.out.println ("who to you atack?");
 		    System.out.println ("a)" + e1 + "b)" + e2 + "c)" + e3 + "d)" + e4);
 		    char target = IO.inputChar ();
+		    if (target == 'a')
+			System.out.println ("you " + Cmove2 [p1] + " enemy " + Cname [e1]);
+		    else if (target == 'b')
+			System.out.println ("you " + Cmove2 [p1] + " enemy " + Cname [e2]);
+		    else if (target == 'c')
+			System.out.println ("you " + Cmove2 [p1] + " enemy " + Cname [e3]);
+		    else
+			System.out.println ("you " + Cmove2 [p1] + " enemy " + Cname [e4]);
 		}
 		else if (CmoveT2 [p1] == p)
 		{
 		    System.out.println ("who to you help?");
 		    System.out.println ("a) you b)" + p2 + "c)" + p3 + "d)" + p4);
 		    char target = IO.inputChar ();
+		    if (target == 'a')
+			System.out.println ("you " + Cmove3 [p1] + Cname [p1]);
+		    else if (target == 'b')
+			System.out.println ("you " + Cmove3 [p1] + Cname [p2]);
+		    else if (target == 'c')
+			System.out.println ("you " + Cmove3 [p1] + Cname [p3]);
+		    else
+			System.out.println ("you " + Cmove3 [p1] + Cname [p4]);
 		}
-	    }
-	    processPlayerChoice (Cmove2Type [p1], Cmove2Dam [p1], target);
-	}
-    }
-
-
-    else if (select == 'c')
-    {
-	if (pamount > 1)
-	{
-	    if (CmoveT2 [p1] == N)
-	    {
-		System.out.println ("who to you atack?");
-		System.out.println ("a)" + e1 + "b)" + e2 + "c)" + e3 + "d)" + e4);
-		char target = IO.inputChar ();
-	    }
-	    else if (CmoveT2 [p1] == p)
-	    {
-		System.out.println ("who to you help?");
-		System.out.println ("a) you b)" + p2 + "c)" + p3 + "d)" + p4);
-		char target = IO.inputChar ();
-	    }
-	}
-	processPlayerChoice (Cmove3type [p1], Cmove3Dam [p1]);
-    }
-
-
-    else
-	item ();
-}
-}
-
-
-public void item ()
-{
-    System.out.println (" what item do you use");
-    if (treat < 0)
-	System.out.println ("a) treat (heal 5 hp) " + treat + " in bag");
-    if (big_treat < 0)
-	System.out.println ("b) Big treat (heal 10 hp) " + big_treat + " in bag");
-    if (rusty_knife < 0)
-	System.out.println ("c) Rusty kife (deal 10 damage and poison " + rusty_knife + " in bag");
-    if (air_horn < 0)
-	System.out.println ("d) air horn (end battle) " + air_horn + " in bag");
-    char i = IO.inputChar ("");
-    if (i == 'a' && treat < 0)
-    {
-	System.out.println ("you eat the treat and heal 5 hp");
-	p1hp += 5;
-    }
-
-
-    else if (i == 'b' && rusty_knife < 0)
-    {
-	System.out.println ("you eat the big treat and heal 10 hp");
-	p1hp += 10;
-    }
-
-
-    else if (i == 'c' && air_horn < 0)
-    {
-	System.out.println ("you stab " + e1 + " with the kife " + e1 + " takes 10 damage and is poisoned");
-	e1hp -= 10;
-	e1statN = "poison";
-    }
-
-
-    {
-	System.out.println ("you blow the air horn");
-	e1hp = 0;
-    }
-}
-
-
-public void processPlayerChoice (String pickedtype, int pickedDam, target)
-{ //your choice of action id applied
-    if (pickedtype.equals ("damage"))
-    {
-	if (target == 'a')
-	{
-	    System.out.println ("you atack" + e1);
-	    System.out.println (e1 + " takes " + pickedDam + " damage");
-	    e1hp -= pickedDam;
-	}
-	else if (target == 'b')
-	{
-	    System.out.println ("you atack" + e2);
-	    System.out.println (e2 + " takes " + pickedDam + " damage");
-	    e2hp -= pickedDam;
-	}
-	else if (target == 'c')
-	{
-	    System.out.println ("you atack" + e3);
-	    System.out.println (e3 + " takes " + pickedDam + " damage");
-	    e3hp -= pickedDam;
-	}
-	else
-	{
-	    System.out.println ("you atack" + e3);
-	    System.out.println (e3 + " takes " + pickedDam + " damage");
-	    e3hp -= pickedDam;
-	}
-	else if (pickedtype.equals ("damage") && e1statP.equals ("hide"))
-	{
-	    if (target == 'a')
-	    {
-		System.out.println ("you are unable to hit " + e1);
-	    }
-	    else if (target == 'b')
-	    {
-		System.out.println ("you are unable to hit " + e2);
-	    }
-	    else if (target == 'c')
-	    {
-		System.out.println ("you are unable to hit " + e3);
-	    }
-	    else
-		System.out.println ("you are unable to hit " + e4);
-	}
-	else if (pickedtype.equals ("hide"))
-	{
-	    System.out.println ("until your next turn you can not be hit");
-	    p1statP = "hide";
-	}
-
-
-	else if (pickedtype.equals ("afraid"))
-	{
-	    if (target == 'a')
-	    {
-		System.out.println ("you sacre " + e1 + " strat");
-		e1statN = "afraid";
-	    }
-	    else if (target == 'b')
-	    {
-		System.out.println ("you sacre " + e2 + " strat");
-		e2statN = "afraid";
-	    }
-	    else if (target == 'c')
-	    {
-		System.out.println ("you sacre " + e3 + " strat");
-		e3statN = "afraid";
+		else
+		    target = 'a';
 	    }
 	    else
 	    {
-		System.out.println ("you sacre " + e4 + " strat");
-		e4statN = "afraid";
+		target = 'a';
 	    }
-	}
-
-
-	else if (pickedtype.equals ("afraid") && e1statP.equals ("hide"))
-	{
-	    if (target == 'a')
-	    {
-		System.out.println ("you are unable to hit " + e1);
-	    }
-	    else if (target == 'b')
-	    {
-		System.out.println ("you are unable to hit " + e2);
-	    }
-	    else if (target == 'c')
-	    {
-		System.out.println ("you are unable to hit " + e3);
-	    }
-	    else
-		System.out.println ("you are unable to hit " + e4);
-	}
-	else if (pickedtype.equals ("heal"))
-	{
-	    p1hp += pickedDam;
-	}
-
-
-	if (e1statP == "hide")
-	    e1statP = "";
-	if (p1statN == "poison")
-	{
-	    if (poisontimerP < 0)
-	    {
-		p1hp -= 3;
-		poisontimerP--;
-	    }
-	    else
-		p1statN = "";
-	}
-
-
-	if (p1statN == "buff")
-	{
-	    if (bufftimerP < 0)
-		bufftimerP--;
-	    else
-		p1statP = "";
-	}
-
-
-	if (e1statN == "debuff")
-	{
-	    if (debufftimerE < 0)
-		debufftimerE--;
-	    else
-		e1statN = "";
-	}
-    }
-
-
-
-    public void EnemyChoice ()
-    {
-	if (e1statN == "afraid")
-	{
-	    System.out.println (e1 + " is to sacred to move");
-	    e1statN = "";
+	    processPlayerChoice (Cmove3type [p1], Cmove3Dam [p1]);
 	}
 
 
 	else
-	{
-	    int Eselect = (int) (Math.random () * 3);
+	    item ();
+    }
 
-	    if (Eselect == 1)
-	    {
-		processEnemyChoice (Cmove1type [e1], Cmove1Dam [e1]);
-		System.out.println (e1 + Cmove1 [e1] + "'s you");
-	    }
-	    else if (Eselect == 2)
-	    {
-		processEnemyChoice (Cmove2Type [e1], Cmove2Dam [e1]);
-		System.out.println (e1 + Cmove2 [e1] + "'s you");
-	    }
-	    else if (Eselect == 3)
-	    {
-		processEnemyChoice (Cmove3type [e1], Cmove3Dam [e1]);
-		System.out.println (e1 + Cmove2 [e1] + "'s you");
-	    }
+
+    public void item ()
+    {
+	System.out.println (" what item do you use");
+	if (treat < 0)
+	    System.out.println ("a) treat (heal 5 hp) " + treat + " in bag");
+	if (big_treat < 0)
+	    System.out.println ("b) Big treat (heal 10 hp) " + big_treat + " in bag");
+	if (rusty_knife < 0)
+	    System.out.println ("c) Rusty kife (deal 10 damage and poison " + rusty_knife + " in bag");
+	if (air_horn < 0)
+	    System.out.println ("d) air horn (end battle) " + air_horn + " in bag");
+	char i = IO.inputChar ("");
+	if (i == 'a' && treat < 0)
+	{
+	    System.out.println ("you eat the treat and heal 5 hp");
+	    p1hp += 5;
+	}
+
+
+	else if (i == 'b' && rusty_knife < 0)
+	{
+	    System.out.println ("you eat the big treat and heal 10 hp");
+	    p1hp += 10;
+	}
+
+
+	else if (i == 'c' && air_horn < 0)
+	{
+	    System.out.println ("you stab " + e1 + " with the kife " + e1 + " takes 10 damage and is poisoned");
+	    e1hp -= 10;
+	    e1statN = "poison";
+	}
+
+
+	{
+	    System.out.println ("you blow the air horn");
+	    e1hp = 0;
 	}
     }
 
 
-    public void processEnemyChoice (String pickedtype, int pickedDam)
-    { //Enemy choice of action id applied
+    public void processPlayerChoice (String pickedtype, int pickedDam, target)
+    { //your choice of action id applied
 	if (pickedtype.equals ("damage"))
 	{
-	    System.out.println (e1 + " takes " + pickedDam + " hp.");
-	    e1hp -= (pickedDam + buffE);
-	}
-
-
-	else if (pickedtype.equals ("damage") && p1statP.equals ("hide"))
-	    System.out.println ("but " + e1 + " is unable to hit you");
-	else if (pickedtype.equals ("hide"))
-	{
-	    System.out.println ("until " + e1 + "'s next turn it can not be hit");
-	    e1statP = "hide";
-	}
-
-
-	else if (pickedtype.equals ("afraid"))
-	{
-	    System.out.println (e1 + " scare's you strat");
-	    p1statN = "afraid";
-	}
-
-
-	else if (pickedtype.equals ("afraid") && p1statP.equals ("hide"))
-	    System.out.println ("but " + e1 + " is unable to scare you");
-	else if (pickedtype.equals ("heal"))
-	{
-	    e1hp += (pickedDam + buffE);
-
-	}
-
-
-	else if (pickedtype.equals ("cast"))
-	{
-	    int c = (int) Math.random () * 4;
-	    if (c == 1)
+	    if (target == 'a')
 	    {
-		System.out.println ("you are greatly hurt by " + e1 + "'s attack");
-		p1hp -= (pickedDam + buffE);
+		System.out.println ("enmay " + Cname [e1] + " takes " + pickedDam + " damage");
+		e1hp -= pickedDam;
+	    }
+	    else if (target == 'b')
+	    {
+		System.out.println ("enmay " + Cname [e2] + " takes " + pickedDam + " damage");
+		e2hp -= pickedDam;
+	    }
+	    else if (target == 'c')
+	    {
+		System.out.println ("enmay " + Cname [e3] + " takes " + pickedDam + " damage");
+		e3hp -= pickedDam;
 	    }
 	    else
-		System.out.println ("but nothing happened");
-	}
-
-
-	else if (pickedtype.equals ("cast") && p1statP.equals ("hide"))
-	    System.out.println ("but " + e1 + " cold not hit its targent");
-	else if (pickedtype.equals ("poison"))
-	{
-	    System.out.println (" hits you and you are poisoned");
-	    p1statN = "poison";
-	    p1hp -= (pickedDam + buffE);
-
-	    poisontimerE = 3;
-	}
-
-
-	else if (pickedtype.equals ("poison") && p1statP.equals ("hide"))
-	    System.out.println ("but " + e1 + " can not poison you");
-	else if (pickedtype.equals ("buff"))
-	{
-	    e1statP = "buff";
-	    bufftimerE = 3;
-	    buffE = 3;
-	}
-
-
-	else if (pickedtype.equals ("debuff"))
-	{
-	    p1statN = "debuff";
-	    debufftimerE = 3;
-	    debuffE = 3;
-	}
-
-
-	if (p1statP == "hide")
-	    p1statP = "";
-	if (e1statN == "poison")
-	{
-	    if (poisontimerE < 0)
 	    {
-		e1hp -= 3;
-		poisontimerE--;
+		System.out.println ("enmay " + Cname [e4] + " takes " + pickedDam + " damage");
+		e3hp -= pickedDam;
 	    }
-	    else
-		e1statN = "";
-	}
-
-
-	if (e1statN == "buff")
-	{
-	    if (bufftimerE < 0)
-		bufftimerE--;
-	    else
-		e1statP = "";
-	}
-
-
-	if (e1statN == "debuff")
-	{
-	    if (debufftimerE < 0)
-		debufftimerE--;
-	    else
-		e1statN = "";
-	}
-    }
-
-
-    public void encounter ()
-    {
-    }
-
-
-    public void shop ()
-    {
-	System.out.println ("a fredndly crow greats you");
-	System.out.println ("                                                     .:%@%##@@-.+%@@@=.                             ");
-	System.out.println ("                                                    .%%#*###%@%#####%@@%%%*..                       ");
-	System.out.println ("                                                    -@######%######%%%%@%##@:            .          ");
-	System.out.println ("                                                    =@@%####%#####%%%%%%##%%@.          ..          ");
-	System.out.println ("                                                  .*@%%%%@@@@%%%%#%%%%%##%%%@-         ...          ");
-	System.out.println ("                                                  .#@@@@%%%%%@@@@@@@@@%%%%%%@-           .          ");
-	System.out.println ("                                                  .=%@@@@@@@@@@@@@@@@@@@%%%%@*            ...       ");
-	System.out.println ("                                                  .@@%@@@@@@@@@@@@@@@@@%#%%%%@-.            ...     ");
-	System.out.println ("                                                  :@@%##@@%@@@@@@%#@@@@##%%%%%@@@@@@@%#=:.          ");
-	System.out.println ("             .::.                                .@@@@%#*####%@@%##@@@@##%%%%%%%*****###@@-.        ");
-	System.out.println ("            +@%@@+.                            ..:#@@*+*#**###%##%#@@@%###%@%%%%%++***####@@.       ");
-	System.out.println ("           .@%%%%@@:                         :@@@@@%++****####%%#%@@@@%###%%%%%%%#++****##%@@.      ");
-	System.out.println ("           -@%%%%%@@:                     ..:@@@@%%+**%*#@%###%@@@@@@@%###%%##%@#%%+**###%%#@@.     ");
-	System.out.println ("          :@%%%%%%%@@:    .:.  .::. .-%@@@@@@@@%#%#**%%@####@%@@@@@@@@%###%%####%#%@**###%%#%@=     ");
-	System.out.println ("          .+@%%%%%%%@@:  .%%%@@%#@+@@@%%%@@@@@@%#@#*#%#*#%@%%%%@@%%%%%%###%%####%###%#####%#%@#     ");
-	System.out.println ("          .%@%%%%@@@@@@. .@#=*%+=@@%%%@@@@@%%%@#%@#%#%%%%%%@%%%%%%@@@%@@%%@%####%%%%######@#%%@.    ");
-	System.out.println ("          *@%%%%@%##%%%@: +@*+=+##*%@@@@@@@%%@%%@@@@%%%%%@%%###@@@@%@@@@@@#*%%#%%########%%#%%@-    ");
-	System.out.println ("         -@%%%%@%####%%%@=%#*##*#%%%@%%@*#%%%%@@@@%%@@@@%####%@@@%%@@@@@@@%*****#########%##%%@+    ");
-	System.out.println ("        .%@%%%@@#####%%%%@=..-@#%%%@%%%@#@%%@@@@@%%@@@@@@%#%@@@%%%@@@@@@@@@*******######@##%%%@*    ");
-	System.out.println ("        =@%%@%@@###%#%%%%%@*=@%%%@%%%%%%%%@%#%%%@@@@%@@@%@@@@@%%@@%@%%%%%@@*+*****#####%##%%%%@#    ");
-	System.out.println ("       :@%@@@@%@@@%@%%%#%%%%%%%%%%%%%%%%%%@@%##%%@@%%@%@@@@@@%@@@%#%%%@%%@@#+*****####%%#%%%%%@#.   ");
-	System.out.println ("       *@###%##@%%%%%%@%%%%%%%%%%%%@%@%%%%@%%%@@@@@%%@@@@@@@@@@@@%#%#%@#%@@#+*##*#####%#%%%%%%@%.   ");
-	System.out.println ("      -@####%##%%#%%%%%@%%%%%@@%%%%%%%%@@@@@@%@@@%%%@@@@@@@@@@@@@%#%#%@##@%#+#**#####%%#%%%%%%@%.   ");
-	System.out.println ("     .@%####%##%@%##%%%%%%%%%%%%@%%%%@@%%@@%%%@@@@@@@@%%@@@@@@@@@%#%#%@##@%#+*###*####@%##%%%%%@.   ");
-	System.out.println ("     +@#####%##%@%@@%%%%%%@%%%@@@@%%%%%%%%@@@@@@#%@@%@%%%%%@%%@@@##%#%@##@%#+*****###%@@@@%%%@+@:   ");
-	System.out.println ("   .-@%#####%##%%%##%%@%@%%%%%%#%@%%@%@%#*@%%%@%#%%%%%@@@%@@@@%%%#%%#%%#%@%#+***#*####%@..:#@@@#.   ");
-	System.out.println ("   .%%%####%###%%@%#%%%%@%##%@%%%@@@@#%%*+#%%%@%#%%%%#@@@@%@%%%%##@%#%%#%@%%%@@@@@#####@*           ");
-	System.out.println ("   +@#%####@###%##@#%%##%%%##%%#%%%%@*+%@@@@%@@###%%%#%%%%%%%%%%%%@%#@@%@%%%%@@@@%%####%@.          ");
-	System.out.println ("  .@%#@###%%###%##@%##%*%@@%#%%**@%%@##%@%@%%@%##%%%%#%%%%%%@##%@%%@%@@@%@@%%%%%%%%####%@.          ");
-	System.out.println ("  ..-*@%#%%@%#%%#%@@%@#*++*%%%%%#@%%@*==@%%@%@%###%%%##%%##%@##%%%%%%%%@%@@%#%%%%%%####%@.          ");
-	System.out.println ("     :@%%%%%%@%@%%%@@#####%+*%%%#@%%%%*#%%%@%@%#%##%%##%%##%%##%@%%%%%%@%%%#%%%%%%%####%@.          ");
-	System.out.println ("     .#@#%%%%%%##%%%@@*+++++@%%@%%%%%%%%%%@@%@%###%%%#%%@###%%#@@%%@%%%@%@%#%%%%%%%####%@.          ");
-	System.out.println ("      .@%#%%%%@##%%%@%%%##%%%%%@%%%@%%%%@@%%%@%###%@%#%%@%##%@%@@%%@%%%%@@##%%%%%@#####%@.   .      ");
-	System.out.println ("       *@##%%%@%##%%%%%%%%%%%%%@%%@@@@@#@%%%%%%###%@%##%%@%#%%@%@%%@%%@@#+%%##%%%#####%@:    ...    ");
-	System.out.println ("       :@%##%%%%##%%%@%%%%@%%%%@@@+....#@%%%%%%###%@@%#@%%%@@@%%@@@@@@@@@@*+#%%%#***#@%:.   ..      ");
-	System.out.println ("        +@##%%%@##%%%%%%%%%%#%%@=   .=@@%%%%%%%###%@%@@@%%%%%@%%@@@@@%%%%%@%*+++***%@+..            ");
-	System.out.println ("        .%%##%%@##%%%%@%%%%%##%@+  .#@###@**@@@%##%%%%%@%%%%%%@%@@%%%%%%%%@%+**+*#@#....  ..        ");
-	System.out.println ("        .*@###%%%##%%%@%#%%%%#%@:  .@%###%@@%#%@@@%%%%%@%%%%%%@%@@@%##%%%%@@#**#@%:                 ");
-	System.out.println ("         :@%##%%###%%%%%##%%@%@=   -@@%#%#**%%%%%%%%%%%%@%%%%%@%@@#%%##%%%%%%@@#:....               ");
-	System.out.println ("          #%###%%##%%%%@##%%@@:.   %@##%#+***%##@%%%%%%%%@%%%%%@@@#+*%@%@###%%%@@=....              ");
-	System.out.println ("          =@###%%###%%%@%#%%@-    .@@%##*+****#@@@%#%%%%%@%%%%%@@@%++*****##@%%%%%@@+..             ");
-	System.out.println ("          :@%##%@####%%@%#%%@:     #%%@++++****%%%@%#%%%%%@%%%%@@@@++++++++*@%%%%%%%%@@%:.          ");
-	System.out.println ("          .@%##%@%####%%%#%@:.     .+@@%++++++%%%%%@%#%%%%@%%%%@@%@@@@@@@@@%%@@%%%%%%%%%%@@#.       ");
-	System.out.println ("          .#@#%@-#@###%%@@-.         ..%@%@%%%%%%%%%@%%%%%%%%%%@@%%@@@@@@@@@%%%@%%%%%%%%%%%%@:      ");
-	System.out.println ("           +@#@+..+@%##%@%.           .=@%%@@%%%%%%%%%%%%%%@%%%@@%%%@@@@@@%%@%%%@@%%%%%%%%%%@@.     ");
-	System.out.println ("           :@@:   .=@%#%%%.            .=@%%%@%%#%%%%%%@%%%%%%%@@%%%%@@@@%%%@@%%%%@%%%%%%%%%%@=     ");
-	System.out.println ("            ..      -@%%@*.            .+@@%%%%@@%%%%%%%%@%%@%%@@%%%%@@@@%%%%@%%%%%@%%%%%%%%%@#..   ");
-	System.out.println ("                     .++:.             .-=@#%%%%%@@%%%%%%%%@@%%@%%%%%%@@%%%%%%@%%%%%%@%%%%%%%%@. .  ");
-	System.out.println ("                                          +##%@@%@@@@@@@@@%%%%@@%%%%%@@@@%%%%%%@%%%%%%@%%%%%%%@:    ");
-	System.out.println ("                                          +%*##%@@@%%%%%%%%%%@@@@%%%%#@%@%%%%%%%@%%%%%%@%%%%%%@=    ");
-	System.out.println ("                                          *%**#@%@@%%%%%%%%%%%%%@#*###%%%@%%%%%%@%%%%%%%@@%%%%@*.   ");
-	System.out.println ("                                          #%**#@%@%%%%#%%%%%%%@%%@****#@%%%%%%%%%@%%%%%%%%@%%%@%.   ");
-	System.out.println ("                                          #%***#@@##%%#%%%%%%%@%%%@*+**#@%@%%%%%%%@%%%%%%%%@@@@@.   ");
-	System.out.println ("                                         .@#***%#@##%%##%%%#%%%@%%%@*+**#@%@%%%%%%%@%%%%%%%%%@@#.   ");
-	System.out.println ("                                         =@***#@.@##%%##%%@##%%%%%%%@#+**#@%%%%%%%%%@%%%%%%%%@%.    ");
-	System.out.println ("                                        .@#**#@*.%%#%%###%@%#%%%%#%%%@#+**#%@%%%%%%%@@%%%%%%%@+     ");
-	System.out.println ("                                       .@%***#@-.+@#%@###%%%#%%%@%#%%%%%***#%@%%%%%%%@@%%%%%@@.     ");
-	System.out.println ("                                      .@#****#@. .-%*@%##%%@##%%%@#%%%%%%**##@@%#%%%%@@@%%%%@:      ");
-	System.out.println ("                                ..+#%%@****#*#@:...  :@%#%@#@%#%%%%#%%%%@#*##@%@%%%%%@-%@%%@+       ");
-	System.out.println ("                              .*@#*+*+*****####%%%@. .:@@%: .%@%%%@%#%%%@**##@%@@%%%%@=.#@@#.       ");
-	System.out.println ("                             :@@@%**#%%###########%#.  ...    :@@%@@%%%%@**##@%@@@@%%@= ....        ");
-	System.out.println ("                                :@#%###**###%+*@@#@@.          ..==-*%%@%**##@%@%%%@%=.             ");
-	System.out.println ("                                 .:..@*%%%@%:     :+.                 :@*####@@#%@=::               ");
-	System.out.println ("                                    .@@.  .                      .#@#=@###%##%#%@.                  ");
-	System.out.println ("                                     :.                        .=@*******#%#*#@*.                   ");
-	System.out.println ("                                                               :@****#%%%@#***##                    ");
-	System.out.println ("                                                              .@%#*##@:..+%**#@+                    ");
-	System.out.println ("                                                              :#:#@@#.   .%#*@-                     ");
-	System.out.println ("                                                                         .+@%*                      ");
-	System.out.println ("                                                                           -%: ");
-	System.out.println ("Welcome to my shop. would you like to buy");
-	char shop = 'y';
-	while (shop == 'y')
-	{
-	    System.out.println ("you have " + Money + " shineineys. trade all shineineys please ");
-	    System.out.println ("you look in your bag. you have " + treat + " treat(s)" + big_treat + " big treat(s) " + rusty_knife + " rusty knife(s) and " + air_horn + " air horn(s)");
-	    System.out.println ("1.treat 10$, 2.big treat 20$,3. rusty knife 25$,4. air horn 50$");
-	    int SC = IO.inputInt ();
-	    if (SC == 1 && Money >= 10)
+	    else if (pickedtype.equals ("damage") && e1statP.equals ("hide"))
 	    {
-		Money -= 10;
-		treat++;
-		System.out.println ("lost 10 shineineys, gained a treat");
+		if (target == 'a')
+		{
+		    System.out.println ("but it is unable to hit " + "enmay " + Cname [e1]);
+		}
+		else if (target == 'b')
+		{
+		    System.out.println ("but it is unable to hit " + "enmay " + Cname [e2]);
+		}
+		else if (target == 'c')
+		{
+		    System.out.println ("but it is unable to hit " + "enmay " + Cname [e3]);
+		}
+		else
+		    System.out.println ("but it is unable to hit " + "enmay " + Cname [e4]);
 	    }
-	    else if (SC == 2 && Money >= 20)
+	    else if (pickedtype.equals ("hide"))
 	    {
-		Money -= 20;
-		big_treat++;
-		System.out.println ("lost 20 shineineys, gained a big treat");
+		if (target == 'a')
+		{
+		    System.out.println ("until you next turn you can not be hit");
+		    p1statP = "hide";
+		}
+		else if (target == 'b')
+		{
+		    System.out.println ("until " Cname [p2] "'s next turn they can not be hit");
+		    p2statP = "hide";
+		}
+		else if (target == 'c')
+		{
+		    System.out.println ("until " Cname [p3] "'s next turn they can not be hit");
+		    p3statP = "hide";
+		}
+		else
+		{
+		    System.out.println ("until " Cname [p4] "'s next turn they can not be hit");
+		    p4statP = "hide";
+		}
 	    }
-	    else if (SC == 3 && Money >= 25)
+
+
+	    else if (pickedtype.equals ("afraid"))
 	    {
-		Money -= 25;
-		rusty_knife++;
-		System.out.println ("lost 25 shineineys, gained a rusty knife");
+		if (target == 'a')
+		{
+		    System.out.println ("it sacre " + "enmay " + Cname [e1] + " strat");
+		    e1statN = "afraid";
+		}
+		else if (target == 'b')
+		{
+		    System.out.println ("it sacre " + "enmay " + Cname [e2] + " strat");
+		    e2statN = "afraid";
+		}
+		else if (target == 'c')
+		{
+		    System.out.println ("it sacre " + "enmay " + Cname [e3] + " strat");
+		    e3statN = "afraid";
+		}
+		else
+		{
+		    System.out.println ("it sacre " + "enmay " + Cname [e4] + " strat");
+		    e4statN = "afraid";
+		}
 	    }
-	    else if (SC == 4 && Money >= 50)
+
+
+	    else if (pickedtype.equals ("afraid") && e1statP.equals ("hide"))
 	    {
-		Money -= 50;
-		air_horn++;
-		System.out.println ("lost 50 shineineys, gained a air horn");
+		if (target == 'a')
+		{
+		    System.out.println ("it is unable to hit " + "enmay " + Cname [e1]);
+		}
+		else if (target == 'b')
+		{
+		    System.out.println ("it is unable to hit " + "enmay " + Cname [e2]);
+		}
+		else if (target == 'c')
+		{
+		    System.out.println ("it is unable to hit " + "enmay " + Cname [e3]);
+		}
+		else
+		    System.out.println ("it is unable to hit " + "enmay " + Cname [e4]);
 	    }
-	    else
-		System.out.println (" you dont have enough shineineys for that");
-	    shop = IO.inputChar ("continue shoping (y/n)");
+	    else if (pickedtype.equals ("heal")
+	    {
+		if (target == 'a')
+		{
+		    System.out.println ("you heal " + pickedDam);
+		    p1hp += pickedDam;
+		}
+		else if (target == 'b')
+		{
+		    System.out.println (Cname [p2] " heals " + pickedDam);
+		    p2hp += pickedDam;
+		}
+		else if (target == 'c')
+		{
+		    System.out.println (Cname [p3] " heals " + pickedDam);
+		    p3hp += pickedDam;
+		}
+		else
+		{
+		    System.out.println (Cname [p4] " heals " + pickedDam);
+		    p4hp += pickedDam;
+		}
+		else if (pickedtype.equals ("cast"))
+		{
+		    int c = (int) Math.random () * 4;
+		    if (c == 1)
+		    {
+			if (target == 'a')
+			{
+			    System.out.println ("enmay " + Cname [e1] + " is greatly hurt by the attack");
+			    e1hp -= (pickedDam + buffE1 - debuffE1);
+			}
+			else if (target == 'b')
+			{
+			    System.out.println ("enmay " + Cname [e2] + " is greatly hurt by the attack");
+			    e2hp -= (pickedDam + buffE1 - debuffE1);
+			}
+			if (target == 'c')
+			{
+			    System.out.println ("enmay " + Cname [e3] + " is greatly hurt by the attack");
+			    e3hp -= (pickedDam + buffE1 - debuffE1);
+			}
+			else
+			{
+			    System.out.println ("enmay " + Cname [e4] + " is greatly hurt by the attack");
+			    e4hp -= (pickedDam + buffE1 - debuffE1);
+			}
+		    }
+		    else
+			System.out.println ("but nothing happened");
+		}
+
+
+		else if (pickedtype.equals ("cast") && e1statP.equals ("hide"))
+		    System.out.println ("but it cold not hit its targent");
+		else if (pickedtype.equals ("poison"))
+		{
+		    if (target == 'a')
+		    {
+			System.out.println ("it hits enmay " + Cname [e1] + " and " + "enmay " + Cname [e1] + " is poisoned");
+			e1statN = "poison";
+			e1hp -= (pickedDam + buffE);
+			poisontimerE1 = 3;
+		    }
+		    else if (target == 'b')
+		    {
+			System.out.println ("it hits enmay " + Cname [e2] + " and " + "enmay " + Cname [e2] + " is poisoned");
+			e2statN = "poison";
+			e2hp -= (pickedDam + buffE);
+			poisontimerE2 = 3;
+		    }
+		    else if (target == 'c')
+		    {
+			System.out.println ("it hits enmay " + Cname [e3] + " and " + "enmay " + Cname [e3] + " is poisoned");
+			e3statN = "poison";
+			e3hp -= (pickedDam + buffE);
+			poisontimerE3 = 3;
+		    }
+		}
+
+
+		else if (pickedtype.equals ("poison") && p1statP.equals ("hide"))
+		    System.out.println ("but " + e1 + " can not poison you");
+		else if (pickedtype.equals ("buff"))
+		{
+		    e1statP = "buff";
+		    bufftimerE = 3;
+		    buffE = 3;
+		}
+
+
+		else if (pickedtype.equals ("debuff"))
+		{
+		    p1statN = "debuff";
+		    debufftimerE = 3;
+		    debuffE = 3;
+		}
+
+
+		if (e1statP == "hide")
+		    e1statP = "";
+		if (p1statN == "poison")
+		{
+		    if (poisontimerP < 0)
+		    {
+			p1hp -= 3;
+			poisontimerP--;
+		    }
+		    else
+			p1statN = "";
+		}
+
+
+		if (p1statN == "buff")
+		{
+		    if (bufftimerP < 0)
+			bufftimerP--;
+		    else
+			p1statP = "";
+		}
+
+
+		if (e1statN == "debuff")
+		{
+		    if (debufftimerE < 0)
+			debufftimerE--;
+		    else
+			e1statN = "";
+		}
+	    }
+
+
+
+	    public void EnemyChoice ()
+	    {
+		if (e1statN == "afraid")
+		{
+		    System.out.println (e1 + " is to sacred to move");
+		    e1statN = "";
+		}
+
+
+		else
+		{
+		    int Eselect = (int) (Math.random () * 3);
+
+		    if (Eselect == 1)
+		    {
+			processEnemyChoice (Cmove1type [e1], Cmove1Dam [e1]);
+			System.out.println (e1 + Cmove1 [e1] + "'s you");
+		    }
+		    else if (Eselect == 2)
+		    {
+			processEnemyChoice (Cmove2Type [e1], Cmove2Dam [e1]);
+			System.out.println (e1 + Cmove2 [e1] + "'s you");
+		    }
+		    else if (Eselect == 3)
+		    {
+			processEnemyChoice (Cmove3type [e1], Cmove3Dam [e1]);
+			System.out.println (e1 + Cmove2 [e1] + "'s you");
+		    }
+		}
+	    }
+
+
+	    public void processEnemyChoice (String pickedtype, int pickedDam)
+	    { //Enemy choice of action id applied
+		if (pickedtype.equals ("damage"))
+		{
+		    System.out.println (e1 + " takes " + pickedDam + " hp.");
+		    e1hp -= (pickedDam + buffE1);
+		}
+
+
+		else if (pickedtype.equals ("damage") && p1statP.equals ("hide"))
+		    System.out.println ("but " + e1 + " is unable to hit you");
+		else if (pickedtype.equals ("hide"))
+		{
+		    System.out.println ("until " + e1 + "'s next turn it can not be hit");
+		    e1statP = "hide";
+		}
+
+
+		else if (pickedtype.equals ("afraid"))
+		{
+		    System.out.println (e1 + " scare's you strat");
+		    p1statN = "afraid";
+		}
+
+
+		else if (pickedtype.equals ("afraid") && p1statP.equals ("hide"))
+		    System.out.println ("but " + e1 + " is unable to scare you");
+		else if (pickedtype.equals ("heal"))
+		{
+		    e1hp += (pickedDam + buffE1 - debuffE1);
+
+		}
+
+
+		else if (pickedtype.equals ("cast"))
+		{
+		    int c = (int) Math.random () * 4;
+		    if (c == 1)
+		    {
+			System.out.println ("you are greatly hurt by " + e1 + "'s attack");
+			p1hp -= (pickedDam + buffE1 - debuffE1);
+		    }
+		    else
+			System.out.println ("but nothing happened");
+		}
+
+
+		else if (pickedtype.equals ("cast") && p1statP.equals ("hide"))
+		    System.out.println ("but " + e1 + " cold not hit its targent");
+		else if (pickedtype.equals ("poison"))
+		{
+		    System.out.println (" hits you and you are poisoned");
+		    p1statN = "poison";
+		    p1hp -= (pickedDam + buffE);
+
+		    poisontimerE = 3;
+		}
+
+
+		else if (pickedtype.equals ("poison") && p1statP.equals ("hide"))
+		    System.out.println ("but " + e1 + " can not poison you");
+		else if (pickedtype.equals ("buff"))
+		{
+		    e1statP = "buff";
+		    bufftimerE = 3;
+		    buffE = 3;
+		}
+
+
+		else if (pickedtype.equals ("debuff"))
+		{
+		    p1statN = "debuff";
+		    debufftimerE = 3;
+		    debuffE = 3;
+		}
+
+
+		if (p1statP == "hide")
+		    p1statP = "";
+		if (e1statN == "poison")
+		{
+		    if (poisontimerE < 0)
+		    {
+			e1hp -= 3;
+			poisontimerE--;
+		    }
+		    else
+			e1statN = "";
+		}
+
+
+		if (e1statN == "buff")
+		{
+		    if (bufftimerE < 0)
+			bufftimerE--;
+		    else
+			e1statP = "";
+		}
+
+
+		if (e1statN == "debuff")
+		{
+		    if (debufftimerE < 0)
+			debufftimerE--;
+		    else
+			e1statN = "";
+		}
+	    }
+
+
+	    public void encounter ()
+	    {
+	    }
+
+
+	    public void shop ()
+	    {
+		System.out.println ("a fredndly crow greats you");
+		System.out.println ("                                                     .:%@%##@@-.+%@@@=.                             ");
+		System.out.println ("                                                    .%%#*###%@%#####%@@%%%*..                       ");
+		System.out.println ("                                                    -@######%######%%%%@%##@:            .          ");
+		System.out.println ("                                                    =@@%####%#####%%%%%%##%%@.          ..          ");
+		System.out.println ("                                                  .*@%%%%@@@@%%%%#%%%%%##%%%@-         ...          ");
+		System.out.println ("                                                  .#@@@@%%%%%@@@@@@@@@%%%%%%@-           .          ");
+		System.out.println ("                                                  .=%@@@@@@@@@@@@@@@@@@@%%%%@*            ...       ");
+		System.out.println ("                                                  .@@%@@@@@@@@@@@@@@@@@%#%%%%@-.            ...     ");
+		System.out.println ("                                                  :@@%##@@%@@@@@@%#@@@@##%%%%%@@@@@@@%#=:.          ");
+		System.out.println ("             .::.                                .@@@@%#*####%@@%##@@@@##%%%%%%%*****###@@-.        ");
+		System.out.println ("            +@%@@+.                            ..:#@@*+*#**###%##%#@@@%###%@%%%%%++***####@@.       ");
+		System.out.println ("           .@%%%%@@:                         :@@@@@%++****####%%#%@@@@%###%%%%%%%#++****##%@@.      ");
+		System.out.println ("           -@%%%%%@@:                     ..:@@@@%%+**%*#@%###%@@@@@@@%###%%##%@#%%+**###%%#@@.     ");
+		System.out.println ("          :@%%%%%%%@@:    .:.  .::. .-%@@@@@@@@%#%#**%%@####@%@@@@@@@@%###%%####%#%@**###%%#%@=     ");
+		System.out.println ("          .+@%%%%%%%@@:  .%%%@@%#@+@@@%%%@@@@@@%#@#*#%#*#%@%%%%@@%%%%%%###%%####%###%#####%#%@#     ");
+		System.out.println ("          .%@%%%%@@@@@@. .@#=*%+=@@%%%@@@@@%%%@#%@#%#%%%%%%@%%%%%%@@@%@@%%@%####%%%%######@#%%@.    ");
+		System.out.println ("          *@%%%%@%##%%%@: +@*+=+##*%@@@@@@@%%@%%@@@@%%%%%@%%###@@@@%@@@@@@#*%%#%%########%%#%%@-    ");
+		System.out.println ("         -@%%%%@%####%%%@=%#*##*#%%%@%%@*#%%%%@@@@%%@@@@%####%@@@%%@@@@@@@%*****#########%##%%@+    ");
+		System.out.println ("        .%@%%%@@#####%%%%@=..-@#%%%@%%%@#@%%@@@@@%%@@@@@@%#%@@@%%%@@@@@@@@@*******######@##%%%@*    ");
+		System.out.println ("        =@%%@%@@###%#%%%%%@*=@%%%@%%%%%%%%@%#%%%@@@@%@@@%@@@@@%%@@%@%%%%%@@*+*****#####%##%%%%@#    ");
+		System.out.println ("       :@%@@@@%@@@%@%%%#%%%%%%%%%%%%%%%%%%@@%##%%@@%%@%@@@@@@%@@@%#%%%@%%@@#+*****####%%#%%%%%@#.   ");
+		System.out.println ("       *@###%##@%%%%%%@%%%%%%%%%%%%@%@%%%%@%%%@@@@@%%@@@@@@@@@@@@%#%#%@#%@@#+*##*#####%#%%%%%%@%.   ");
+		System.out.println ("      -@####%##%%#%%%%%@%%%%%@@%%%%%%%%@@@@@@%@@@%%%@@@@@@@@@@@@@%#%#%@##@%#+#**#####%%#%%%%%%@%.   ");
+		System.out.println ("     .@%####%##%@%##%%%%%%%%%%%%@%%%%@@%%@@%%%@@@@@@@@%%@@@@@@@@@%#%#%@##@%#+*###*####@%##%%%%%@.   ");
+		System.out.println ("     +@#####%##%@%@@%%%%%%@%%%@@@@%%%%%%%%@@@@@@#%@@%@%%%%%@%%@@@##%#%@##@%#+*****###%@@@@%%%@+@:   ");
+		System.out.println ("   .-@%#####%##%%%##%%@%@%%%%%%#%@%%@%@%#*@%%%@%#%%%%%@@@%@@@@%%%#%%#%%#%@%#+***#*####%@..:#@@@#.   ");
+		System.out.println ("   .%%%####%###%%@%#%%%%@%##%@%%%@@@@#%%*+#%%%@%#%%%%#@@@@%@%%%%##@%#%%#%@%%%@@@@@#####@*           ");
+		System.out.println ("   +@#%####@###%##@#%%##%%%##%%#%%%%@*+%@@@@%@@###%%%#%%%%%%%%%%%%@%#@@%@%%%%@@@@%%####%@.          ");
+		System.out.println ("  .@%#@###%%###%##@%##%*%@@%#%%**@%%@##%@%@%%@%##%%%%#%%%%%%@##%@%%@%@@@%@@%%%%%%%%####%@.          ");
+		System.out.println ("  ..-*@%#%%@%#%%#%@@%@#*++*%%%%%#@%%@*==@%%@%@%###%%%##%%##%@##%%%%%%%%@%@@%#%%%%%%####%@.          ");
+		System.out.println ("     :@%%%%%%@%@%%%@@#####%+*%%%#@%%%%*#%%%@%@%#%##%%##%%##%%##%@%%%%%%@%%%#%%%%%%%####%@.          ");
+		System.out.println ("     .#@#%%%%%%##%%%@@*+++++@%%@%%%%%%%%%%@@%@%###%%%#%%@###%%#@@%%@%%%@%@%#%%%%%%%####%@.          ");
+		System.out.println ("      .@%#%%%%@##%%%@%%%##%%%%%@%%%@%%%%@@%%%@%###%@%#%%@%##%@%@@%%@%%%%@@##%%%%%@#####%@.   .      ");
+		System.out.println ("       *@##%%%@%##%%%%%%%%%%%%%@%%@@@@@#@%%%%%%###%@%##%%@%#%%@%@%%@%%@@#+%%##%%%#####%@:    ...    ");
+		System.out.println ("       :@%##%%%%##%%%@%%%%@%%%%@@@+....#@%%%%%%###%@@%#@%%%@@@%%@@@@@@@@@@*+#%%%#***#@%:.   ..      ");
+		System.out.println ("        +@##%%%@##%%%%%%%%%%#%%@=   .=@@%%%%%%%###%@%@@@%%%%%@%%@@@@@%%%%%@%*+++***%@+..            ");
+		System.out.println ("        .%%##%%@##%%%%@%%%%%##%@+  .#@###@**@@@%##%%%%%@%%%%%%@%@@%%%%%%%%@%+**+*#@#....  ..        ");
+		System.out.println ("        .*@###%%%##%%%@%#%%%%#%@:  .@%###%@@%#%@@@%%%%%@%%%%%%@%@@@%##%%%%@@#**#@%:                 ");
+		System.out.println ("         :@%##%%###%%%%%##%%@%@=   -@@%#%#**%%%%%%%%%%%%@%%%%%@%@@#%%##%%%%%%@@#:....               ");
+		System.out.println ("          #%###%%##%%%%@##%%@@:.   %@##%#+***%##@%%%%%%%%@%%%%%@@@#+*%@%@###%%%@@=....              ");
+		System.out.println ("          =@###%%###%%%@%#%%@-    .@@%##*+****#@@@%#%%%%%@%%%%%@@@%++*****##@%%%%%@@+..             ");
+		System.out.println ("          :@%##%@####%%@%#%%@:     #%%@++++****%%%@%#%%%%%@%%%%@@@@++++++++*@%%%%%%%%@@%:.          ");
+		System.out.println ("          .@%##%@%####%%%#%@:.     .+@@%++++++%%%%%@%#%%%%@%%%%@@%@@@@@@@@@%%@@%%%%%%%%%%@@#.       ");
+		System.out.println ("          .#@#%@-#@###%%@@-.         ..%@%@%%%%%%%%%@%%%%%%%%%%@@%%@@@@@@@@@%%%@%%%%%%%%%%%%@:      ");
+		System.out.println ("           +@#@+..+@%##%@%.           .=@%%@@%%%%%%%%%%%%%%@%%%@@%%%@@@@@@%%@%%%@@%%%%%%%%%%@@.     ");
+		System.out.println ("           :@@:   .=@%#%%%.            .=@%%%@%%#%%%%%%@%%%%%%%@@%%%%@@@@%%%@@%%%%@%%%%%%%%%%@=     ");
+		System.out.println ("            ..      -@%%@*.            .+@@%%%%@@%%%%%%%%@%%@%%@@%%%%@@@@%%%%@%%%%%@%%%%%%%%%@#..   ");
+		System.out.println ("                     .++:.             .-=@#%%%%%@@%%%%%%%%@@%%@%%%%%%@@%%%%%%@%%%%%%@%%%%%%%%@. .  ");
+		System.out.println ("                                          +##%@@%@@@@@@@@@%%%%@@%%%%%@@@@%%%%%%@%%%%%%@%%%%%%%@:    ");
+		System.out.println ("                                          +%*##%@@@%%%%%%%%%%@@@@%%%%#@%@%%%%%%%@%%%%%%@%%%%%%@=    ");
+		System.out.println ("                                          *%**#@%@@%%%%%%%%%%%%%@#*###%%%@%%%%%%@%%%%%%%@@%%%%@*.   ");
+		System.out.println ("                                          #%**#@%@%%%%#%%%%%%%@%%@****#@%%%%%%%%%@%%%%%%%%@%%%@%.   ");
+		System.out.println ("                                          #%***#@@##%%#%%%%%%%@%%%@*+**#@%@%%%%%%%@%%%%%%%%@@@@@.   ");
+		System.out.println ("                                         .@#***%#@##%%##%%%#%%%@%%%@*+**#@%@%%%%%%%@%%%%%%%%%@@#.   ");
+		System.out.println ("                                         =@***#@.@##%%##%%@##%%%%%%%@#+**#@%%%%%%%%%@%%%%%%%%@%.    ");
+		System.out.println ("                                        .@#**#@*.%%#%%###%@%#%%%%#%%%@#+**#%@%%%%%%%@@%%%%%%%@+     ");
+		System.out.println ("                                       .@%***#@-.+@#%@###%%%#%%%@%#%%%%%***#%@%%%%%%%@@%%%%%@@.     ");
+		System.out.println ("                                      .@#****#@. .-%*@%##%%@##%%%@#%%%%%%**##@@%#%%%%@@@%%%%@:      ");
+		System.out.println ("                                ..+#%%@****#*#@:...  :@%#%@#@%#%%%%#%%%%@#*##@%@%%%%%@-%@%%@+       ");
+		System.out.println ("                              .*@#*+*+*****####%%%@. .:@@%: .%@%%%@%#%%%@**##@%@@%%%%@=.#@@#.       ");
+		System.out.println ("                             :@@@%**#%%###########%#.  ...    :@@%@@%%%%@**##@%@@@@%%@= ....        ");
+		System.out.println ("                                :@#%###**###%+*@@#@@.          ..==-*%%@%**##@%@%%%@%=.             ");
+		System.out.println ("                                 .:..@*%%%@%:     :+.                 :@*####@@#%@=::               ");
+		System.out.println ("                                    .@@.  .                      .#@#=@###%##%#%@.                  ");
+		System.out.println ("                                     :.                        .=@*******#%#*#@*.                   ");
+		System.out.println ("                                                               :@****#%%%@#***##                    ");
+		System.out.println ("                                                              .@%#*##@:..+%**#@+                    ");
+		System.out.println ("                                                              :#:#@@#.   .%#*@-                     ");
+		System.out.println ("                                                                         .+@%*                      ");
+		System.out.println ("                                                                           -%: ");
+		System.out.println ("Welcome to my shop. would you like to buy");
+		char shop = 'y';
+		while (shop == 'y')
+		{
+		    System.out.println ("you have " + Money + " shineineys. trade all shineineys please ");
+		    System.out.println ("you look in your bag. you have " + treat + " treat(s)" + big_treat + " big treat(s) " + rusty_knife + " rusty knife(s) and " + air_horn + " air horn(s)");
+		    System.out.println ("1.treat 10$, 2.big treat 20$,3. rusty knife 25$,4. air horn 50$");
+		    int SC = IO.inputInt ();
+		    if (SC == 1 && Money >= 10)
+		    {
+			Money -= 10;
+			treat++;
+			System.out.println ("lost 10 shineineys, gained a treat");
+		    }
+		    else if (SC == 2 && Money >= 20)
+		    {
+			Money -= 20;
+			big_treat++;
+			System.out.println ("lost 20 shineineys, gained a big treat");
+		    }
+		    else if (SC == 3 && Money >= 25)
+		    {
+			Money -= 25;
+			rusty_knife++;
+			System.out.println ("lost 25 shineineys, gained a rusty knife");
+		    }
+		    else if (SC == 4 && Money >= 50)
+		    {
+			Money -= 50;
+			air_horn++;
+			System.out.println ("lost 50 shineineys, gained a air horn");
+		    }
+		    else
+			System.out.println (" you dont have enough shineineys for that");
+		    shop = IO.inputChar ("continue shoping (y/n)");
+		}
+	    }
 	}
-    }
-}
 
 
