@@ -7,19 +7,22 @@ public class RPG2
     String Cname[] = {"dog", "cat", "snake", "toad", "bird", "rat"};
     int Chp[] = {25, 25, 25, 15, 15, 25};
     String Cmove1[] = {"bite", "scratch", "soothe", "tonic", "shoot", "poison bite"};
+    char Cmove1T[] = {'n', 'n', 'p', 'p', 'n', 'n'};
     String Cmove1type[] = {"damage", "damage", "heal", "buff", "damage", "poison"};
     int Cmove1Dam[] = {10, 5, 10, 0, 10, 3};
     String Cmove2[] = {"guard", "cast", "trap", "jump", "fly", "tall wip"};
+    char Cmove2T[] = {'s', 'n', 'n', 's', 's', 'n'};
     String Cmove2Type[] = {"hide", "cast", "afraid", "hide", "hide", "debuff"};
     int Cmove2Dam[] = {0, 20, 0, 0, 0, 3};
     String Cmove3[] = {"bark", "lick", "poison bite", "soothe", "gust", "stealth claw"};
+    char Cmove2T[] = {'n', 'p', 'n', 'p', 'n', 'p'};
     String Cmove3type[] = {"afraid", "buff", "poison", "heal", "debuff", "cast"};
     int Cmove3Dam[] = {0, 0, 3, 10, 3, 20};
-    //player vare
-    int pamount = 0;
+    //player vars
+    int pc = 1;
     int p1 = 0;
     int p1hp = 50;
-    String p1statP = "";
+    String p1statP1 = "";
     String p1statN = "";
     int poisontimerP1 = 0;
     int bufftimerP1 = 0;
@@ -156,7 +159,7 @@ public class RPG2
 	System.out.println ("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::---:::----------------------------======++");
 	System.out.println ("::::::::::::::::::::::..:...::...::::::---::::::::::::::::::::::---------------------------------===");
 	System.out.println ("::-----:::::--::::---:--------------------------------------------=====================++=======+++=");
-	play = IO.inputChar ("play game? (y/n)");
+	play = IO.inputChar ("play game? (y/n) ");
 	while (play != 'n')
 	{
 	    int place = (int) (Math.random () * 7);
@@ -174,7 +177,15 @@ public class RPG2
 		train_tracks ();
 	    else if (r == 1 && g == 1 && sc == 1 && p == 1 && sw == 1 && t == 1)
 	    {
-		System.out.println ("play end credits");
+		//play ending
+		System.out.println ("you see the light of your home ahead. you knock on the door.");
+		System.out.println ("your mother throws it open and pulls you into a hug.");
+		System.out.println ("after some explaing and discusstion, she agrees to adopt your new friends.");
+		System.out.println ("you find your way to your bed and curl up in it.");
+		System.out.println ("you have had enough adventure for a long time.");
+		System.out.println ();
+		System.out.println ("thank you for playing Dog Quest. i had a lot of fun programing it,");
+		System.out.println ("and i hope you had a lot of fun playing it -Griffin");
 		play = 'n';
 	    }
 	}
@@ -182,40 +193,49 @@ public class RPG2
 
 
     public void road ()
-    {
-	// no atomatic party meber
+    { // no atomatic party meber
 	System.out.println ("\tyou arive at long road");
-	int e = (int) (Math.random () * 4);
-	if (e == 1)
+	for (i = 0 ; i >= 5 ; i++)
 	{
-	    int t = (int) (Math.random () * 8) + 1;
-	    if (t <= 4)
-		e1 = 0;
-	    else if (t <= 7)
-		e1 = 1;
-	    else
-		e1 = 4;
-	    battle ();
-	}
-	else if (e == 2)
-	    shop ();
-	else
-	{
-
-	    int a = (int) Math.random () * 2;
-	    if (a == 1 && re == 0)
+	    int e = (int) (Math.random () * 4);
+	    if (e == 1)
 	    {
-		//area spific encounter
-		System.out.println ("you find a dog hit by the side of the round. It whimpers quietly ");
-		re++;
+		int t = (int) (Math.random () * 8) + 1;
+		if (t <= 4)
+		    e1 = 0;
+		else if (t <= 7)
+		    e1 = 1;
+		else
+		    e1 = 4;
+		battle ();
 	    }
+	    else if (e == 2)
+		shop ();
 	    else
-		//genral encounter
-		encounter ();
-	}
-	//boss fight
-	int np = (int) (Math.random () * 2);
+	    {
 
+		int a = (int) Math.random () * 2;
+		if (a == 1 && re == 0)
+		{
+		    //area spific encounter
+		    System.out.println ("you find a dog hit by the side of the round. It whimpers quietly ");
+		    System.out.println ("do you");
+		    System.out.println ("a) use a big treat to heal him \n or");
+		    System.out.println ("b) let him pass on and 'partak'");
+		    char c = IO.inputChar ();
+		    if (c == 'a')
+		    {
+			pc++;
+			System.out.println ("the dog stands up, thanks you and disids to join your quest");
+		    }
+		    re++;
+		}
+		else
+		    //genral encounter
+		    encounter ();
+	    }
+	}
+	int np = (int) (Math.random () * 2);
 	r++;
 	play = IO.inputChar ("keep going? (y/n)");
     }
@@ -281,7 +301,7 @@ public class RPG2
 	else
 	    encounter ();
 	sc++;
-	play = IO.inputChar ("keep going? (y/n)");
+	play = IO.inputChar ("keep going? (y/n) ");
     }
 
 
@@ -446,108 +466,235 @@ public class RPG2
 		    {
 			System.out.println ("who to you atack?");
 			System.out.println ("a)" + e1 + "b)" + e2 + "c)" + e3 + "d)" + e4);
-			char coyse = IO.inputChar ();
-			if (CmoveT1 [p1] == p)
-			    processPlayerChoice (Cmove1type [p1], Cmove1Dam [p1], coyse);
+			char target = IO.inputChar ();
+		    }
+		    else if (CmoveT1 [p1] == p)
+		    {
+			System.out.println ("who to you help?");
+			System.out.println ("a) you b)" + p2 + "c)" + p3 + "d)" + p4);
+			char target = IO.inputChar ();
 		    }
 		}
-
-
-		else if (select == 'b')
-		    processPlayerChoice (Cmove2Type [p1], Cmove2Dam [p1]);
-		else if (select == 'c')
-		    processPlayerChoice (Cmove3type [p1], Cmove3Dam [p1]);
-		else
-		    item ();
+		processPlayerChoice (Cmove1type [p1], Cmove1Dam [p1], target);
 	    }
 	}
+	else if (select == 'b')
+	{
+	    if (pamount > 1)
+	    {
+		if (CmoveT2 [p1] == N)
+		{
+		    System.out.println ("who to you atack?");
+		    System.out.println ("a)" + e1 + "b)" + e2 + "c)" + e3 + "d)" + e4);
+		    char target = IO.inputChar ();
+		}
+		else if (CmoveT2 [p1] == p)
+		{
+		    System.out.println ("who to you help?");
+		    System.out.println ("a) you b)" + p2 + "c)" + p3 + "d)" + p4);
+		    char target = IO.inputChar ();
+		}
+	    }
+	    processPlayerChoice (Cmove2Type [p1], Cmove2Dam [p1], target);
+	}
     }
 
 
-    public void item ()
+    else if (select == 'c')
     {
-	System.out.println (" what item do you use");
-	if (treat < 0)
-	    System.out.println ("a) treat (heal 5 hp) " + treat + " in bag");
-	if (big_treat < 0)
-	    System.out.println ("b) Big treat (heal 10 hp) " + big_treat + " in bag");
-	if (rusty_knife < 0)
-	    System.out.println ("c) Rusty kife (deal 10 damage and poison " + rusty_knife + " in bag");
-	if (air_horn < 0)
-	    System.out.println ("d) air horn (end battle) " + air_horn + " in bag");
-	char i = IO.inputChar ("");
-	if (i == 'a' && treat < 0)
+	if (pamount > 1)
 	{
-	    System.out.println ("you eat the treat and heal 5 hp");
-	    p1hp += 5;
+	    if (CmoveT2 [p1] == N)
+	    {
+		System.out.println ("who to you atack?");
+		System.out.println ("a)" + e1 + "b)" + e2 + "c)" + e3 + "d)" + e4);
+		char target = IO.inputChar ();
+	    }
+	    else if (CmoveT2 [p1] == p)
+	    {
+		System.out.println ("who to you help?");
+		System.out.println ("a) you b)" + p2 + "c)" + p3 + "d)" + p4);
+		char target = IO.inputChar ();
+	    }
 	}
-	else if (i == 'b' && rusty_knife < 0)
-	{
-	    System.out.println ("you eat the big treat and heal 10 hp");
-	    p1hp += 10;
-	}
-	else if (i == 'c' && air_horn < 0)
-	{
-	    System.out.println ("you stab " + e1 + " with the kife " + e1 + " takes 10 damage and is poisoned");
-	    e1hp -= 10;
-	    e1statN = "poison";
-	}
-
-	{
-	    System.out.println ("you blow the air horn");
-	    e1hp = 0;
-	}
+	processPlayerChoice (Cmove3type [p1], Cmove3Dam [p1]);
     }
 
 
-    public void processPlayerChoice (String pickedtype, int pickedDam)
-    { //your choice of action id applied
-	if (pickedtype.equals ("damage"))
+    else
+	item ();
+}
+}
+
+
+public void item ()
+{
+    System.out.println (" what item do you use");
+    if (treat < 0)
+	System.out.println ("a) treat (heal 5 hp) " + treat + " in bag");
+    if (big_treat < 0)
+	System.out.println ("b) Big treat (heal 10 hp) " + big_treat + " in bag");
+    if (rusty_knife < 0)
+	System.out.println ("c) Rusty kife (deal 10 damage and poison " + rusty_knife + " in bag");
+    if (air_horn < 0)
+	System.out.println ("d) air horn (end battle) " + air_horn + " in bag");
+    char i = IO.inputChar ("");
+    if (i == 'a' && treat < 0)
+    {
+	System.out.println ("you eat the treat and heal 5 hp");
+	p1hp += 5;
+    }
+
+
+    else if (i == 'b' && rusty_knife < 0)
+    {
+	System.out.println ("you eat the big treat and heal 10 hp");
+	p1hp += 10;
+    }
+
+
+    else if (i == 'c' && air_horn < 0)
+    {
+	System.out.println ("you stab " + e1 + " with the kife " + e1 + " takes 10 damage and is poisoned");
+	e1hp -= 10;
+	e1statN = "poison";
+    }
+
+
+    {
+	System.out.println ("you blow the air horn");
+	e1hp = 0;
+    }
+}
+
+
+public void processPlayerChoice (String pickedtype, int pickedDam, target)
+{ //your choice of action id applied
+    if (pickedtype.equals ("damage"))
+    {
+	if (target == 'a')
 	{
-	    System.out.println (e1 + " takes " + pickedDam + " hp.");
-	    e1hp -= (pickedDam + buffE1 - debuffE1);
+	    System.out.println ("you atack" + e1);
+	    System.out.println (e1 + " takes " + pickedDam + " damage");
+	    e1hp -= pickedDam;
+	}
+	else if (target == 'b')
+	{
+	    System.out.println ("you atack" + e2);
+	    System.out.println (e2 + " takes " + pickedDam + " damage");
+	    e2hp -= pickedDam;
+	}
+	else if (target == 'c')
+	{
+	    System.out.println ("you atack" + e3);
+	    System.out.println (e3 + " takes " + pickedDam + " damage");
+	    e3hp -= pickedDam;
+	}
+	else
+	{
+	    System.out.println ("you atack" + e3);
+	    System.out.println (e3 + " takes " + pickedDam + " damage");
+	    e3hp -= pickedDam;
 	}
 	else if (pickedtype.equals ("damage") && e1statP.equals ("hide"))
-	    System.out.println ("you are unable to hit " + e1);
+	{
+	    if (target == 'a')
+	    {
+		System.out.println ("you are unable to hit " + e1);
+	    }
+	    else if (target == 'b')
+	    {
+		System.out.println ("you are unable to hit " + e2);
+	    }
+	    else if (target == 'c')
+	    {
+		System.out.println ("you are unable to hit " + e3);
+	    }
+	    else
+		System.out.println ("you are unable to hit " + e4);
+	}
 	else if (pickedtype.equals ("hide"))
 	{
 	    System.out.println ("until your next turn you can not be hit");
 	    p1statP = "hide";
 	}
+
+
 	else if (pickedtype.equals ("afraid"))
 	{
-	    System.out.println ("you sacre " + e1 + " strat");
-	    e1statN = "afraid";
+	    if (target == 'a')
+	    {
+		System.out.println ("you sacre " + e1 + " strat");
+		e1statN = "afraid";
+	    }
+	    else if (target == 'b')
+	    {
+		System.out.println ("you sacre " + e2 + " strat");
+		e2statN = "afraid";
+	    }
+	    else if (target == 'c')
+	    {
+		System.out.println ("you sacre " + e3 + " strat");
+		e3statN = "afraid";
+	    }
+	    else
+	    {
+		System.out.println ("you sacre " + e4 + " strat");
+		e4statN = "afraid";
+	    }
 	}
+
+
 	else if (pickedtype.equals ("afraid") && e1statP.equals ("hide"))
-	    System.out.println ("you are unable to hit " + e1);
+	{
+	    if (target == 'a')
+	    {
+		System.out.println ("you are unable to hit " + e1);
+	    }
+	    else if (target == 'b')
+	    {
+		System.out.println ("you are unable to hit " + e2);
+	    }
+	    else if (target == 'c')
+	    {
+		System.out.println ("you are unable to hit " + e3);
+	    }
+	    else
+		System.out.println ("you are unable to hit " + e4);
+	}
 	else if (pickedtype.equals ("heal"))
 	{
 	    p1hp += pickedDam;
 	}
+
+
 	if (e1statP == "hide")
 	    e1statP = "";
 	if (p1statN == "poison")
 	{
-	    if (poisontimerP1 < 0)
+	    if (poisontimerP < 0)
 	    {
 		p1hp -= 3;
-		poisontimerP1--;
+		poisontimerP--;
 	    }
 	    else
 		p1statN = "";
 	}
+
+
 	if (p1statN == "buff")
 	{
-	    if (bufftimerP1 < 0)
-		bufftimerP1--;
+	    if (bufftimerP < 0)
+		bufftimerP--;
 	    else
 		p1statP = "";
 	}
+
+
 	if (e1statN == "debuff")
 	{
-	    if (debufftimerE1 < 0)
-		debufftimerE1--;
+	    if (debufftimerE < 0)
+		debufftimerE--;
 	    else
 		e1statN = "";
 	}
@@ -592,7 +739,7 @@ public class RPG2
 	if (pickedtype.equals ("damage"))
 	{
 	    System.out.println (e1 + " takes " + pickedDam + " hp.");
-	    e1hp -= (pickedDam + buffE1 - debuffE1);
+	    e1hp -= (pickedDam + buffE);
 	}
 
 
@@ -616,7 +763,7 @@ public class RPG2
 	    System.out.println ("but " + e1 + " is unable to scare you");
 	else if (pickedtype.equals ("heal"))
 	{
-	    e1hp += (pickedDam + buffE1);
+	    e1hp += (pickedDam + buffE);
 
 	}
 
@@ -627,7 +774,7 @@ public class RPG2
 	    if (c == 1)
 	    {
 		System.out.println ("you are greatly hurt by " + e1 + "'s attack");
-		p1hp -= (pickedDam + buffE1);
+		p1hp -= (pickedDam + buffE);
 	    }
 	    else
 		System.out.println ("but nothing happened");
@@ -640,9 +787,9 @@ public class RPG2
 	{
 	    System.out.println (" hits you and you are poisoned");
 	    p1statN = "poison";
-	    p1hp -= (pickedDam + buffE1- debuffE1);
+	    p1hp -= (pickedDam + buffE);
 
-	    poisontimerE1 = 3;
+	    poisontimerE = 3;
 	}
 
 
@@ -651,16 +798,16 @@ public class RPG2
 	else if (pickedtype.equals ("buff"))
 	{
 	    e1statP = "buff";
-	    bufftimerE1 = 3;
-	    buffE1 = 3;
+	    bufftimerE = 3;
+	    buffE = 3;
 	}
 
 
 	else if (pickedtype.equals ("debuff"))
 	{
 	    p1statN = "debuff";
-	    debufftimerE1 = 3;
-	    debuffE1 = 3;
+	    debufftimerE = 3;
+	    debuffE = 3;
 	}
 
 
@@ -668,10 +815,10 @@ public class RPG2
 	    p1statP = "";
 	if (e1statN == "poison")
 	{
-	    if (poisontimerE1 < 0)
+	    if (poisontimerE < 0)
 	    {
 		e1hp -= 3;
-		poisontimerE1--;
+		poisontimerE--;
 	    }
 	    else
 		e1statN = "";
@@ -680,8 +827,8 @@ public class RPG2
 
 	if (e1statN == "buff")
 	{
-	    if (bufftimerE1 < 0)
-		bufftimerE1--;
+	    if (bufftimerE < 0)
+		bufftimerE--;
 	    else
 		e1statP = "";
 	}
@@ -689,8 +836,8 @@ public class RPG2
 
 	if (e1statN == "debuff")
 	{
-	    if (debufftimerE1 < 0)
-		debufftimerE1--;
+	    if (debufftimerE < 0)
+		debufftimerE--;
 	    else
 		e1statN = "";
 	}
