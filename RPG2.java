@@ -826,8 +826,8 @@ public class RPG2
 			p4statN = "poison";
 			p4hp -= 5;
 		    }
-		    else 
-		    System.out.println ("you diside its best not to risk it");
+		    else
+			System.out.println ("you diside its best not to risk it");
 		}
 		else
 		    encounter ();
@@ -925,7 +925,27 @@ public class RPG2
 	    else if (e == 2)
 		shop ();
 	    else
-		encounter ();
+	    {
+		int h = (int) Math.random () * 4;
+		if (h == 4)
+		{
+		    System.out.println ("you find an old disused train");
+		    if (p2 == 4 || p3 == 4 || p4 == 4)
+			System.out.println ("a) have the burd repair it");
+		    System.out.println ("b) take its supplys and leve");
+		    char tc = IO.inputChar ("");
+		    if (tc == 'a')
+		    {
+			e = 5;
+			sc = 1;
+		    }
+		    else
+			treat += 5;
+
+		}
+		else
+		    encounter ();
+	    }
 	}
 
 
